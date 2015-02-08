@@ -47,19 +47,23 @@
 					} else {
 						tag.style.display = "none";
 					}
-					if (length * n > 6000) {
-						if (length > 60) {
-							length /= 2;
-						} else {
-							length = big;
-						}
-						n=-1;
-					}
 
-					setTimeout(function(){ blink(length, n+1) }, length);
+					n++;
+
+					setTimeout(function(){
+						if (length * n > 6000) {
+							if (length > 40) {
+								length /= 2;
+							} else {
+								length = big;
+							}
+							n=0;
+						}
+						blink(length, n) 
+					}, length);
 				}
 			}
-			setTimeout(function() { blink(big, 0); }, 20000);
+			setTimeout(function() { blink(big, 0); }, 30000);
 		</script>
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
